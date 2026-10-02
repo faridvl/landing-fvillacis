@@ -1,0 +1,19 @@
+{
+  "name": "FVillacis",
+  "url": "https://fvillacis.com",
+  "defaultLocale": "es",
+  "ogLocale": "es_CR",
+  "country": "Costa Rica",
+  "countryCode": "CR",
+  "currency": "CRC",
+  "contact": {
+    "whatsapp": "50688165808",
+    "email": ""
+  },
+  "social": [
+    { "network": "instagram", "url": "" },
+    { "network": "facebook", "url": "" },
+    { "network": "linkedin", "url": "" },
+    { "network": "github", "url": "https://github.com/faridvl" }
+  ]
+}

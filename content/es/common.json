@@ -1,0 +1,50 @@
+{
+  "tagline": "Tu negocio, en el celular de tus clientes",
+  "description": "Menús digitales con código QR para sodas y restaurantes, catálogos para salones, barberías y tatuadores, tiendas en línea con SINPE Móvil y páginas web para negocios en Costa Rica.",
+  "seo": {
+    "title": "Menú digital, tiendas en línea y páginas web en Costa Rica",
+    "keywords": [
+      "menú digital Costa Rica",
+      "menú QR para restaurantes",
+      "menú digital para sodas",
+      "carta digital QR Costa Rica",
+      "página web para barberías",
+      "catálogo de trabajos para salón de belleza",
+      "portafolio para tatuadores",
+      "tienda en línea Costa Rica",
+      "tienda en línea con SINPE Móvil",
+      "landing page Costa Rica",
+      "diseño de páginas web Costa Rica",
+      "desarrollo de software a la medida",
+      "desarrollo web a la medida Costa Rica"
+    ],
+    "ogImageAlt": "Soluciones tecnológicas: menú digital, landing pages y desarrollo a la medida"
+  },
+  "navigation": {
+    "items": [
+      { "label": "Lo que hacemos", "target": "soluciones" },
+      { "label": "Nuestro trabajo", "target": "proyectos" },
+      { "label": "Menú digital", "target": "menu-digital" },
+      { "label": "Cómo funciona", "target": "proceso" },
+      { "label": "Preguntas", "target": "preguntas" }
+    ],
+    "cta": {
+      "label": "Escríbenos",
+      "message": "Hola, quiero cotizar una solución para mi negocio."
+    }
+  },
+  "ui": {
+    "skipToContent": "Saltar al contenido",
+    "openMenu": "Abrir menú",
+    "closeMenu": "Cerrar menú",
+    "whatsappFab": "Escríbenos por WhatsApp",
+    "socialLabel": "Perfil en {network}",
+    "rights": "Todos los derechos reservados."
+  },
+  "footer": {
+    "contactTitle": "Contacto",
+    "solutionsTitle": "Lo que hacemos",
+    "whatsappLabel": "WhatsApp",
+    "emailLabel": "Correo"
+  }
+}

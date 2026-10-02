@@ -1,0 +1,29 @@
+{
+  "venue": "Soda La Esquina",
+  "venueNote": "Abierto hoy de 6:00 a. m. a 4:00 p. m.",
+  "orderLabel": "Pedir por WhatsApp",
+  "highlightLabel": "Plato del día",
+  "previewAriaLabel": "Ejemplo de menú digital de una soda",
+  "categories": [
+    {
+      "name": "Desayunos",
+      "items": [
+        { "name": "Gallo pinto con huevo", "description": "Natilla, plátano maduro y tortilla", "price": 2800 },
+        { "name": "Pinto con bistec", "description": "Bistec encebollado y café chorreado", "price": 3600 }
+      ]
+    },
+    {
+      "name": "Casados",
+      "items": [
+        { "name": "Casado de pollo", "description": "Arroz, frijoles, ensalada y picadillo", "price": 3900, "highlight": true },
+        { "name": "Casado de pescado", "description": "Filete a la plancha con patacones", "price": 4500 }
+      ]
+    },
+    {
+      "name": "Bebidas",
+      "items": [
+        { "name": "Fresco natural", "description": "Cas, mora o piña", "price": 1200 }
+      ]
+    }
+  ]
+}

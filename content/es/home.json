@@ -1,0 +1,177 @@
+{
+  "hero": {
+    "eyebrowPrefix": "Ayudamos a",
+    "rotatingWords": ["restaurantes y sodas", "salones y barberías", "estudios de tatuaje", "tiendas y emprendimientos", "negocios de barrio"],
+    "title": "Llevamos tu negocio al celular de tus clientes",
+    "subtitle": "Menús con código QR, catálogos de tus trabajos, tiendas en línea y páginas web. Fáciles de usar, bonitas y listas para que te encuentren en Google.",
+    "cta": { "label": "Ver lo que hacemos", "target": "soluciones" }
+  },
+  "solutions": {
+    "eyebrow": "Lo que hacemos",
+    "title": "Elige lo que tu negocio necesita hoy",
+    "subtitle": "Empieza con algo sencillo y crece cuando quieras. Nosotros nos encargamos de la parte complicada.",
+    "idealForLabel": "Perfecto para",
+    "items": [
+      {
+        "id": "menu-digital",
+        "icon": "qr-code",
+        "name": "Menú digital con código QR",
+        "summary": "Tus clientes escanean un código en la mesa y ven tu menú en el celular. Si cambias un precio, se actualiza al momento.",
+        "idealFor": "Sodas, restaurantes, cafeterías y food trucks",
+        "features": [
+          "Código QR listo para poner en las mesas",
+          "Fotos de tus platos y precios en colones",
+          "Te piden directo por WhatsApp",
+          "Cambias el plato del día cuando quieras",
+          "No hay que descargar nada"
+        ],
+        "cta": { "label": "Quiero mi menú", "message": "Hola, me interesa el menú digital para mi negocio." }
+      },
+      {
+        "id": "catalogo-de-trabajos",
+        "icon": "gallery",
+        "name": "Catálogo de tus trabajos",
+        "summary": "Un lugar bonito para mostrar fotos y videos de lo que haces, para que tus clientes elijan y te escriban de una vez.",
+        "idealFor": "Uñas, cabello, barberías, tatuajes y maquillaje",
+        "features": [
+          "Tus fotos y videos ordenados por estilo",
+          "Tus servicios con sus precios",
+          "Te agendan por WhatsApp con un toque",
+          "Un enlace para poner en tu Instagram y TikTok",
+          "Subes tus trabajos nuevos sin depender de nadie"
+        ],
+        "cta": { "label": "Quiero mi catálogo", "message": "Hola, me interesa un catálogo para mostrar mis trabajos." }
+      },
+      {
+        "id": "tienda-en-linea",
+        "icon": "cart",
+        "name": "Tienda en línea",
+        "summary": "Vende tus productos a cualquier hora. Tus clientes eligen, pagan por SINPE Móvil y a ti te llega el pedido.",
+        "idealFor": "Tiendas, marcas propias y quienes hoy venden por Instagram",
+        "features": [
+          "Tus productos con fotos, tallas o presentaciones",
+          "Pagos por SINPE Móvil o transferencia",
+          "Sabes siempre cuánto te queda en bodega",
+          "Revisas tus pedidos desde el celular",
+          "Avisos y comprobantes por WhatsApp"
+        ],
+        "cta": { "label": "Quiero mi tienda", "message": "Hola, me interesa una tienda en línea para mi negocio." }
+      },
+      {
+        "id": "pagina-web",
+        "icon": "layout",
+        "name": "Página web para tu negocio",
+        "summary": "Una página clara y profesional que cuenta lo que haces y hace que más gente te escriba.",
+        "idealFor": "Emprendimientos, servicios y profesionales",
+        "features": [
+          "Con los colores y el estilo de tu marca",
+          "Preparada para que te encuentren en Google",
+          "Abre rápido, aunque sea con datos",
+          "Botón de WhatsApp siempre a la mano",
+          "Con tu propio nombre en internet (tunegocio.com)"
+        ],
+        "cta": { "label": "Quiero mi página", "message": "Hola, me interesa una página web para mi negocio." }
+      },
+      {
+        "id": "a-la-medida",
+        "icon": "code",
+        "name": "Una herramienta hecha para ti",
+        "summary": "¿Tienes una idea o una tarea que te quita mucho tiempo? La convertimos en una herramienta hecha a tu medida.",
+        "idealFor": "Negocios que quieren trabajar menos a mano",
+        "features": [
+          "Reservas y citas en línea",
+          "Cotizaciones automáticas para tus clientes",
+          "Un espacio privado para tus clientes",
+          "Menos trabajo repetitivo para ti",
+          "Conectado con WhatsApp, correo y pagos"
+        ],
+        "cta": { "label": "Contar mi idea", "message": "Hola, tengo una idea y quiero saber si me pueden ayudar." }
+      }
+    ]
+  },
+  "projects": {
+    "eyebrow": "Nuestro trabajo",
+    "title": "Negocios reales que ya confían en nosotros",
+    "subtitle": "Estos sitios están funcionando hoy. Entra y date una vuelta.",
+    "deliverablesLabel": "Lo que hicimos",
+    "items": [
+      {
+        "id": "audiocolors",
+        "name": "AudioColors",
+        "url": "https://audiocolors.com",
+        "image": "/images/projects/audiocolors.webp",
+        "category": "Clínica auditiva",
+        "description": "Página para una clínica con cinco sedes en la zona sur, con citas por WhatsApp y un sistema para manejar a sus pacientes.",
+        "deliverables": ["Página web", "Sistema para pacientes"]
+      },
+      {
+        "id": "grupo-tnt",
+        "name": "Grupo TNT",
+        "url": "https://www.grupotnt.com",
+        "image": "/images/projects/grupo-tnt.webp",
+        "category": "Agencia de publicidad",
+        "description": "Página con mucho movimiento para una agencia que trabaja con marcas como Ford, Nissan y Audi.",
+        "deliverables": ["Página web", "Visible en Google"]
+      },
+      {
+        "id": "magastore",
+        "name": "Magastore",
+        "url": "https://magastorecr.com",
+        "image": "/images/projects/magastore.webp",
+        "category": "Casillero en Miami",
+        "description": "Página y sistema para un servicio de casillero: los clientes se registran y siguen sus paquetes.",
+        "deliverables": ["Página web", "Sistema de paquetes"]
+      }
+    ]
+  },
+  "menuSpotlight": {
+    "eyebrow": "Menú digital",
+    "title": "Tu menú siempre al día, en el celular de tus clientes",
+    "subtitle": "Escanean el código de la mesa y ven todo tu menú en segundos. Cambias un precio y listo: se actualiza en todas las mesas.",
+    "benefits": [
+      { "icon": "scan", "title": "Escanean y listo", "description": "No tienen que descargar nada ni registrarse. Funciona en cualquier celular." },
+      { "icon": "refresh", "title": "Cambios en un momento", "description": "Precios, plato del día o algo que se acabó, lo cambias en segundos." },
+      { "icon": "message", "title": "Pedidos por WhatsApp", "description": "El cliente arma su pedido y te llega directo a tu WhatsApp." },
+      { "icon": "printer", "title": "Adiós a reimprimir", "description": "No vuelves a pagar por imprimir menús cada vez que algo cambia." }
+    ],
+    "cta": { "label": "Quiero un menú así", "message": "Hola, vi el ejemplo del menú digital y quiero uno para mi negocio." }
+  },
+  "principles": {
+    "eyebrow": "Por qué con nosotros",
+    "title": "Bien hecho y explicado sin enredos",
+    "items": [
+      { "icon": "gauge", "title": "Abre en un instante", "description": "Nadie espera a que una página cargue. Las nuestras abren rápido, y eso también ayuda a salir en Google." },
+      { "icon": "smartphone", "title": "Hecho para el celular", "description": "Casi todos tus clientes te van a ver desde el teléfono, así que pensamos primero en esa pantalla." },
+      { "icon": "search", "title": "Te encuentran en Google", "description": "Preparamos tu página para que Google entienda qué haces y se la muestre a quien te busca." },
+      { "icon": "key", "title": "Todo queda a tu nombre", "description": "Tu página y tu nombre en internet son tuyos. Sin amarres ni sorpresas." }
+    ]
+  },
+  "process": {
+    "eyebrow": "Cómo funciona",
+    "title": "Así de fácil es empezar",
+    "steps": [
+      { "title": "Conversamos", "description": "Nos cuentas de tu negocio y de lo que te gustaría lograr." },
+      { "title": "Te damos una propuesta", "description": "Te decimos qué incluye, cuánto tarda y cuánto cuesta. Claro y por escrito." },
+      { "title": "Lo construimos contigo", "description": "Vas viendo cómo queda y nos dices qué te gusta antes de publicarlo." },
+      { "title": "Lo publicamos", "description": "Lo ponemos en línea, te enseñamos a usarlo y seguimos a la orden." }
+    ]
+  },
+  "faq": {
+    "eyebrow": "Preguntas frecuentes",
+    "title": "Lo que casi todos nos preguntan",
+    "items": [
+      { "question": "¿Cuánto tarda en estar listo?", "answer": "Depende de lo que necesites. Un menú digital puede estar en pocos días y una página web en una o dos semanas. Antes de empezar te damos una fecha." },
+      { "question": "¿Tengo que saber de computadoras?", "answer": "Para nada. Nosotros nos encargamos de todo y te explicamos lo necesario con palabras sencillas." },
+      { "question": "¿Puedo cambiar precios o platos yo mismo?", "answer": "Sí. Lo cambias y tus clientes lo ven al momento, sin cambiar el código QR de las mesas." },
+      { "question": "¿Mi página va a salir en Google?", "answer": "La preparamos para que Google la encuentre y la entienda. Salir más arriba también toma un poco de tiempo, y en eso te acompañamos." },
+      { "question": "¿Trabajan fuera de San José?", "answer": "Sí. Todo se puede hacer por WhatsApp y videollamada, así que trabajamos con negocios de todo el país." },
+      { "question": "¿Y después de publicar?", "answer": "Seguimos a la orden para cambios, mejoras o cosas nuevas conforme crece tu negocio." }
+    ]
+  },
+  "finalCta": {
+    "eyebrow": "Empecemos",
+    "title": "Cuéntanos de tu negocio y te decimos cómo te podemos ayudar",
+    "subtitle": "Escríbenos por WhatsApp, sin compromiso. Te respondemos con una propuesta clara.",
+    "cta": { "label": "Escríbenos por WhatsApp", "message": "Hola, quiero conversar sobre mi negocio." }
+  }
+}
