@@ -2,6 +2,8 @@ import type { MetadataRoute } from "next";
 import { getDictionary, site } from "@/lib/content";
 import { paletteHex } from "@/lib/palette";
 
+export const dynamic = "force-static";
+
 export default function manifest(): MetadataRoute.Manifest {
   const { common } = getDictionary(site.defaultLocale);
   const palette = paletteHex();

@@ -1,40 +1,39 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { AnimatePresence, motion, useReducedMotion } from "motion/react";
-import { EASE_EDITORIAL, ROTATING_WORD } from "@/lib/motion";
+import { REDUCED_MOTION_QUERY, ROTATING_WORD } from "@/lib/motion";
 import { cn } from "@/lib/utils";
 
-// Reserva el ancho de la palabra más larga para que el texto vecino no salte.
+interface RotationState {
+  index: number;
+  previous: number | null;
+}
+
+// Todas las palabras se apilan en la misma celda: el ancho queda fijo al de la más larga.
 export function RotatingWord({ words, className }: { words: string[]; className?: string }) {
-  const [index, setIndex] = useState(0);
-  const reduceMotion = useReducedMotion();
+  const [{ index, previous }, setRotation] = useState<RotationState>({ index: 0, previous: null });
 
   useEffect(() => {
-    if (reduceMotion || words.length < 2) return;
-    const id = setInterval(() => setIndex((i) => (i + 1) % words.length), ROTATING_WORD.intervalMs);
+    if (words.length < 2 || window.matchMedia(REDUCED_MOTION_QUERY).matches) return;
+    const id = setInterval(() => {
+      setRotation(({ index: current }) => ({ index: (current + 1) % words.length, previous: current }));
+    }, ROTATING_WORD.intervalMs);
     return () => clearInterval(id);
-  }, [reduceMotion, words.length]);
-
-  const longest = words.reduce((a, b) => (b.length > a.length ? b : a), "");
+  }, [words.length]);
 
   return (
-    <span className={cn("relative inline-grid align-top", className)}>
-      <span aria-hidden="true" className="invisible col-start-1 row-start-1 whitespace-nowrap">
-        {longest}
-      </span>
-      <AnimatePresence mode="wait" initial={false}>
-        <motion.span
-          key={words[index]}
+    <span className={cn("rotating-word relative inline-grid align-top", className)}>
+      {words.map((word, i) => (
+        <span
+          key={word}
+          aria-hidden={i !== index}
+          data-active={i === index ? "" : undefined}
+          data-leaving={i === previous ? "" : undefined}
           className="col-start-1 row-start-1 whitespace-nowrap"
-          initial={{ opacity: 0, y: ROTATING_WORD.offset }}
-          animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: -ROTATING_WORD.offset }}
-          transition={{ duration: ROTATING_WORD.duration, ease: EASE_EDITORIAL }}
         >
-          {words[index]}
-        </motion.span>
-      </AnimatePresence>
+          {word}
+        </span>
+      ))}
     </span>
   );
 }

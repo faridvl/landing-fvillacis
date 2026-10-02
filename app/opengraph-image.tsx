@@ -3,6 +3,8 @@ import { BrandMarkImage, IMAGE_COLORS } from "@/lib/brand-images";
 import { OG_IMAGE_SIZE } from "@/lib/constants";
 import { getDictionary, site } from "@/lib/content";
 
+export const dynamic = "force-static";
+
 const { common, home } = getDictionary(site.defaultLocale);
 
 const OG_MARK_SIZE = 56;

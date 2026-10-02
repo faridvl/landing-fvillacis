@@ -1,32 +1,22 @@
-"use client";
+import type { CSSProperties, ReactNode } from "react";
 
-import { motion } from "motion/react";
-import { EASE_EDITORIAL, REVEAL } from "@/lib/motion";
-
-const REVEAL_ELEMENTS = {
-  div: motion.div,
-  li: motion.li,
-  article: motion.article,
-} as const;
+export enum RevealVariant {
+  Default = "",
+  Strong = "strong",
+}
 
 interface RevealProps {
-  children: React.ReactNode;
-  as?: keyof typeof REVEAL_ELEMENTS;
+  children: ReactNode;
+  as?: "div" | "li" | "article";
   className?: string;
   delay?: number;
   strong?: boolean;
 }
 
-export function Reveal({ children, as = "div", className, delay = 0, strong = false }: RevealProps) {
-  const Element = REVEAL_ELEMENTS[as];
+export function Reveal({ children, as: Element = "div", className, delay = 0, strong = false }: RevealProps) {
+  const style = delay ? ({ "--reveal-delay": `${delay}s` } as CSSProperties) : undefined;
   return (
-    <Element
-      className={className}
-      initial={{ opacity: 0, y: strong ? REVEAL.offsetStrong : REVEAL.offset, scale: strong ? REVEAL.scaleStrong : 1 }}
-      whileInView={{ opacity: 1, y: 0, scale: 1 }}
-      viewport={{ once: true, margin: REVEAL.viewportMargin }}
-      transition={{ duration: strong ? REVEAL.durationStrong : REVEAL.duration, delay, ease: EASE_EDITORIAL }}
-    >
+    <Element data-reveal={strong ? RevealVariant.Strong : RevealVariant.Default} className={className} style={style}>
       {children}
     </Element>
   );

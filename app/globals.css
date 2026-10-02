@@ -22,14 +22,29 @@
   --shadow-cta: 0 10px 24px -10px var(--palette-brand-strong);
   --shadow-whatsapp: 0 8px 24px color-mix(in srgb, var(--palette-whatsapp) 45%, transparent);
 
-  --font-sans: var(--font-inter);
+  /* Texto con la fuente del sistema: no se descarga y no retrasa el primer pintado. */
+  --font-sans: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   --font-display: var(--font-sora);
 }
 
 @theme {
-  /* En sync con EASE_EDITORIAL (lib/motion.ts). */
   --ease-editorial: cubic-bezier(0.16, 0.8, 0.2, 1);
   --blur-glow: 80px;
+}
+
+:root {
+  --reveal-offset: 20px;
+  --reveal-offset-strong: 32px;
+  --reveal-scale-strong: 0.97;
+  --reveal-duration: 0.6s;
+  --reveal-duration-strong: 0.8s;
+  --rotate-duration: 0.55s;
+  --rotate-offset: 14px;
+  --parallax-bg-shift: 90px;
+  --parallax-content-shift: -40px;
+  --glow-scale: 1.08;
+  --pulse-duration: 2.6s;
+  --pulse-spread: 20px;
 }
 
 @layer base {
@@ -84,20 +99,99 @@
   );
 }
 
+/* El atributo data-revealed lo agrega RevealObserver al entrar en pantalla. */
+[data-reveal] {
+  opacity: 0;
+  transform: translateY(var(--reveal-offset));
+  transition:
+    opacity var(--reveal-duration) var(--ease-editorial),
+    transform var(--reveal-duration) var(--ease-editorial);
+  transition-delay: var(--reveal-delay, 0s);
+}
+
+[data-reveal="strong"] {
+  transform: translateY(var(--reveal-offset-strong)) scale(var(--reveal-scale-strong));
+  transition-duration: var(--reveal-duration-strong);
+}
+
+[data-reveal][data-revealed] {
+  opacity: 1;
+  transform: none;
+}
+
+.rotating-word > * {
+  opacity: 0;
+  transform: translateY(var(--rotate-offset));
+  transition:
+    opacity var(--rotate-duration) var(--ease-editorial),
+    transform var(--rotate-duration) var(--ease-editorial);
+}
+
+.rotating-word > [data-active] {
+  opacity: 1;
+  transform: none;
+}
+
+.rotating-word > [data-leaving] {
+  transform: translateY(calc(var(--rotate-offset) * -1));
+}
+
+@keyframes glow-drift {
+  50% { transform: translate(var(--drift-x), var(--drift-y)) scale(var(--glow-scale)); }
+}
+
+.ambient-glow {
+  will-change: transform;
+  animation: glow-drift ease-in-out infinite;
+}
+
 @keyframes cta-pulse {
   0% { box-shadow: 0 0 0 0 color-mix(in srgb, var(--palette-brand) 55%, transparent); }
-  70% { box-shadow: 0 0 0 20px transparent; }
+  70% { box-shadow: 0 0 0 var(--pulse-spread) transparent; }
   100% { box-shadow: 0 0 0 0 transparent; }
 }
 
 .cta-pulse {
-  animation-name: cta-pulse;
-  animation-timing-function: ease-out;
-  animation-iteration-count: infinite;
+  animation: cta-pulse var(--pulse-duration) ease-out infinite;
+}
+
+@keyframes parallax-shift {
+  to { transform: translateY(var(--parallax-shift)); }
+}
+
+/* Parallax sin JavaScript; donde no hay soporte, el hero queda estático. */
+@supports (animation-timeline: scroll()) {
+  .parallax-bg,
+  .parallax-content {
+    animation: parallax-shift linear both;
+    animation-timeline: scroll(root);
+    animation-range: 0 100svh;
+  }
+
+  .parallax-bg {
+    --parallax-shift: var(--parallax-bg-shift);
+  }
+
+  .parallax-content {
+    --parallax-shift: var(--parallax-content-shift);
+  }
+}
+
+@media (prefers-reduced-motion: reduce), (scripting: none) {
+  [data-reveal] {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .cta-pulse {
+  .rotating-word > *,
+  .ambient-glow,
+  .cta-pulse,
+  .parallax-bg,
+  .parallax-content {
+    transition: none;
     animation: none;
   }
 }

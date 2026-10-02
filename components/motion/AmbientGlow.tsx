@@ -1,6 +1,4 @@
-"use client";
-
-import { motion } from "motion/react";
+import type { CSSProperties } from "react";
 import { cn } from "@/lib/utils";
 
 export enum GlowTone {
@@ -19,12 +17,18 @@ interface AmbientGlowProps {
 
 export function AmbientGlow({ tone, className, drift, duration, delay = 0 }: AmbientGlowProps) {
   const [x, y] = drift;
+  const style = {
+    "--drift-x": `${x}px`,
+    "--drift-y": `${y}px`,
+    animationDuration: `${duration}s`,
+    animationDelay: `${delay}s`,
+  } as CSSProperties;
+
   return (
-    <motion.div
+    <div
       aria-hidden="true"
-      className={cn("pointer-events-none absolute rounded-full blur-glow", tone, className)}
-      animate={{ x: [0, x, 0], y: [0, y, 0], scale: [1, 1.08, 1] }}
-      transition={{ duration, delay, repeat: Infinity, ease: "easeInOut" }}
+      className={cn("ambient-glow pointer-events-none absolute rounded-full blur-glow", tone, className)}
+      style={style}
     />
   );
 }

@@ -1,14 +1,16 @@
-@AGENTS.md
-
 # landing-fvillacis
+
+Next.js 16 tiene cambios de API respecto a versiones anteriores: antes de usar una API o config,
+revisar `node_modules/next/dist/docs/`. `agentRules: false` en `next.config.ts` evita que `next dev`
+vuelva a crear el AGENTS.md de la plantilla.
 
 Landing de soluciones tecnológicas (menú digital para restaurantes/sodas, landing pages, desarrollo
 a la medida). Marca actual: **fvillacis** (fvillacis.com), elegida como marca personal mientras se
 define el nombre de una futura empresa; por eso el nombre vive solo en `content/site.json` → `name`
 y el copy habla en "nosotros". Cambiar de marca = editar ese campo + `url` y redirigir el dominio.
 
-Stack: Next.js 16 (App Router, todo estático) · React 19 · Tailwind v4 · `motion` · lucide-react.
-Despliegue pensado para Vercel.
+Stack: Next.js 16 (App Router, todo estático) · React 19 · Tailwind v4 · lucide-react. Sin librería
+de animaciones: todo el movimiento es CSS (ver abajo). Lighthouse móvil: 95 rendimiento, 100 el resto.
 
 ## Reglas
 
@@ -35,13 +37,19 @@ Despliegue pensado para Vercel.
 6. Copy sin comillas angulares; headings grandes con `text-pretty`.
 7. Archivos sin BOM (PowerShell 5.1 `Set-Content -Encoding utf8` lo agrega y rompe el CSS).
 
-## Movimiento (heredado de landing-grupotnt)
+## Movimiento
 
-- `Reveal` (`components/motion`) para entrada al scroll; acepta `as="li" | "article"` para no
-  romper la semántica dentro de listas.
-- `EASE_EDITORIAL` ↔ `--ease-editorial` (utilidad `ease-editorial`) en sync.
-- Hero: parallax (`useScroll`) + `AmbientGlow` + `RotatingWord`. CTA final: `PulseLink`.
-- `MotionProvider` respeta `prefers-reduced-motion`; los loops CSS tienen su propio guard.
+Todo en CSS para no cargar JavaScript en celular (se quitó `motion`: 91 → 95 en Lighthouse móvil).
+Duraciones y desplazamientos son variables en `:root` de `globals.css`.
+
+- `Reveal` es un componente de servidor que solo marca `data-reveal`; un único `RevealObserver`
+  (en el layout) agrega `data-revealed` al entrar en pantalla. Acepta `as="li" | "article"`.
+- Hero: parallax con `animation-timeline: scroll()` (sin soporte → estático), `AmbientGlow`
+  (keyframes) y `RotatingWord` (único componente de cliente del hero).
+- CTA final: `PulseLink` (keyframes). Todo respeta `prefers-reduced-motion`.
+- Una sola fuente descargada (Sora, títulos); el texto usa la fuente del sistema.
+- El panel del navegador de Claude, si está oculto, no dispara IntersectionObserver: verificar
+  animaciones con Playwright headless, no con ese panel.
 - Etiquetas de sección: `Eyebrow` (filete + mayúsculas), nunca chips con emoji.
 - Grids sin cajas: filete superior que se tiñe en hover.
 
@@ -60,7 +68,13 @@ Estructura lista, una sola lengua activa (`Locale.Es`). Para agregar inglés: cr
 a un segmento `app/[locale]/` con `alternates.languages` (hreflang). Con un solo idioma se deja la
 raíz sin prefijo, que es lo mejor para SEO.
 
+## Publicación
+
+`output: "export"` genera el sitio estático en `out/`; Cloudflare lo sirve con `wrangler.jsonc`.
+Sin servidor: nada de rutas API, `next start` ni optimizador de imágenes (las capturas de
+`public/images/projects/` van en WebP a 960 px).
+
 ## Pendientes de contenido
 
 - `content/site.json`: correo con dominio propio (vacío = oculto) y redes.
-- Comprar el dominio fvillacis.com y conectarlo en Vercel.
+- Comprar el dominio fvillacis.com y definir hosting (Cloudflare o Vercel).

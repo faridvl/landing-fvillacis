@@ -1,30 +1,19 @@
-"use client";
-
-import { useRef } from "react";
 import { ArrowDown } from "lucide-react";
-import { motion, useScroll, useTransform } from "motion/react";
 import { AmbientGlow, GlowTone } from "@/components/motion/AmbientGlow";
 import { RotatingWord } from "@/components/motion/RotatingWord";
 import { ButtonLink, ButtonSize, ButtonVariant } from "@/components/ui/ButtonLink";
 import { Container } from "@/components/ui/Container";
 import { SectionId } from "@/lib/constants";
-import { PARALLAX } from "@/lib/motion";
 import type { HomeContent } from "@/lib/types";
 import { toAnchor } from "@/lib/utils";
 
 export function Hero({ content }: { content: HomeContent["hero"] }) {
-  const ref = useRef<HTMLElement>(null);
-  const { scrollYProgress } = useScroll({ target: ref, offset: ["start start", "end start"] });
-  const backgroundY = useTransform(scrollYProgress, [0, 1], [0, PARALLAX.backgroundShift]);
-  const contentY = useTransform(scrollYProgress, [0, 1], [0, PARALLAX.contentShift]);
-
   return (
     <section
       id={SectionId.Hero}
-      ref={ref}
       className="dark-section relative flex min-h-[92svh] items-center overflow-hidden bg-ink pt-24 pb-20"
     >
-      <motion.div aria-hidden="true" className="hero-grid absolute -inset-y-24 inset-x-0" style={{ y: backgroundY }} />
+      <div aria-hidden="true" className="hero-grid parallax-bg absolute -inset-y-24 inset-x-0" />
       <AmbientGlow tone={GlowTone.Brand} className="-top-24 -left-16 size-96 opacity-35" drift={[30, -20]} duration={16} />
       <AmbientGlow
         tone={GlowTone.Accent}
@@ -35,7 +24,7 @@ export function Hero({ content }: { content: HomeContent["hero"] }) {
       />
 
       <Container className="relative">
-        <motion.div className="mx-auto flex max-w-4xl flex-col items-center text-center" style={{ y: contentY }}>
+        <div className="parallax-content mx-auto flex max-w-4xl flex-col items-center text-center">
           <div className="mb-7 flex items-center gap-3">
             <span aria-hidden="true" className="hidden h-px w-8 bg-brand sm:block" />
             <span className="flex flex-col items-center gap-1 text-xs font-semibold uppercase tracking-[0.22em] text-brand-strong sm:flex-row sm:items-baseline sm:gap-1.5 sm:text-sm">
@@ -51,7 +40,7 @@ export function Hero({ content }: { content: HomeContent["hero"] }) {
             {content.cta.label}
             <ArrowDown aria-hidden="true" className="size-4" />
           </ButtonLink>
-        </motion.div>
+        </div>
       </Container>
     </section>
   );
